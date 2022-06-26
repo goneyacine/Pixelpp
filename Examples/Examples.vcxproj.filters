@@ -5,4 +5,9 @@
       <UniqueIdentifier>{be7c3d01-410c-49d2-9018-4b62fda7e990}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

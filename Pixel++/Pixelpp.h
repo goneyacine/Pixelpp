@@ -32,7 +32,7 @@ namespace Pixelpp
 	/*
 	 extracts the red, green, blue & alpha from 64 bit rgba color (16 bit color channel) and returns the result in an array
 	*/
-	uint16_t* GetRGBA16(uint16_t p_rgba);
+	uint16_t* GetRGBA16(uint64_t p_rgba);
 
 	/*
 	 sets the red value of a 64 bit rgba color (16 bit color channel)
@@ -164,6 +164,12 @@ namespace Pixelpp
 	* sets the blue value of a 16 bit rgba color (4 bit color channel)
 	*/
 	void SetBlue4(uint16_t* p_rgba, uint8_t p_blue);
+
+	/*
+	* sets the alpha value of a 16 bit rgba color (4 color channel)
+	*/
+	void SetAlpha4(uint16_t* p_rgba, uint8_t p_alpha);
+
 	/*
 	* sets the red, green & blue values of a 16 bit rgba color (4 bit color channel)
 	*/
