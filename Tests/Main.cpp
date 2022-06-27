@@ -4,7 +4,7 @@
 #include <cstdlib>
 
 // the number of test iterations
-#define CASE_NUM 10000
+#define CASE_NUM 100
 
 
 /* TESTING THE GET RED FUNCTIONS */
@@ -248,6 +248,262 @@ TEST(GET_RGBA_4_TEST, CORRECT_RGBA_VALUE)
     }
 }
 
+/* TESTING THE SET RED FUNCTIONS */
+
+TEST(SET_RED_16_TEST, CORRETCLY_SETTING_THE_RED_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint64_t rgba;
+        uint16_t red = (uint16_t)(rand()/RAND_MAX) * 0xFFFF;
+        Pixelpp::SetRed16(&rgba, red);
+        ASSERT_EQ(red, Pixelpp::GetRed16(rgba));
+    }
+}
+
+TEST(SET_RED_8_TEST, CORRETCLY_SETTING_THE_RED_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint32_t rgba;
+        uint8_t red = (uint8_t)(rand()/RAND_MAX) * 0xFF;
+        Pixelpp::SetRed8(&rgba, red);
+        ASSERT_EQ(red, Pixelpp::GetRed8(rgba));
+    }
+}
+
+TEST(SET_RED_4_TEST, CORRETCLY_SETTING_THE_RED_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint16_t rgba;
+        uint8_t red = (uint8_t)(rand()/RAND_MAX) * 0x0F;
+        Pixelpp::SetRed4(&rgba, red);
+        ASSERT_EQ(red, Pixelpp::GetRed4(rgba));
+    }
+}
+
+
+/* TESTING THE SET GREEN FUNCTIONS */
+
+TEST(SET_GREEN_16_TEST, CORRETCLY_SETTING_THE_GREEN_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint64_t rgba;
+        uint16_t green = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        Pixelpp::SetGreen16(&rgba, green);
+        ASSERT_EQ(green, Pixelpp::GetGreen16(rgba));
+    }
+}
+
+TEST(SET_GREEN_8_TEST, CORRETCLY_SETTING_THE_GREEN_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint32_t rgba;
+        uint8_t green = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        Pixelpp::SetGreen8(&rgba, green);
+        ASSERT_EQ(green, Pixelpp::GetGreen8(rgba));
+    }
+}
+
+TEST(SET_GREEN_4_TEST, CORRETCLY_SETTING_THE_GREEN_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint16_t rgba;
+        uint8_t green = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        Pixelpp::SetGreen4(&rgba, green);
+        ASSERT_EQ(green, Pixelpp::GetGreen4(rgba));
+    }
+}
+
+/* TESTING THE SET BLUE FUNCTIONS */
+
+TEST(SET_BLUE_16_TEST, CORRETCLY_SETTING_THE_BLUE_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint64_t rgba;
+        uint16_t blue = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        Pixelpp::SetBlue16(&rgba, blue);
+        ASSERT_EQ(blue, Pixelpp::GetBlue16(rgba));
+    }
+}
+
+TEST(SET_BLUE_8_TEST, CORRETCLY_SETTING_THE_BLUE_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint32_t rgba;
+        uint8_t blue = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        Pixelpp::SetBlue8(&rgba, blue);
+        ASSERT_EQ(blue, Pixelpp::GetBlue8(rgba));
+    }
+}
+
+TEST(SET_BLUE_4_TEST, CORRETCLY_SETTING_THE_BLUE_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint16_t rgba;
+        uint8_t blue = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        Pixelpp::SetBlue4(&rgba, blue);
+        ASSERT_EQ(blue, Pixelpp::GetBlue4(rgba));
+    }
+}
+
+/* TESTING THE SET ALPHA FUNCTIONS */
+
+TEST(SET_ALPHA_16_TEST, CORRETCLY_SETTING_THE_ALPHA_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint64_t rgba;
+        uint16_t alpha = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        Pixelpp::SetAlpha16(&rgba, alpha);
+        ASSERT_EQ(alpha, Pixelpp::GetAlpha16(rgba));
+    }
+}
+
+TEST(SET_ALPHA_8_TEST, CORRETCLY_SETTING_THE_ALPHA_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint32_t rgba;
+        uint8_t alpha = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        Pixelpp::SetAlpha8(&rgba, alpha);
+        ASSERT_EQ(alpha, Pixelpp::GetAlpha8(rgba));
+    }
+}
+
+TEST(SET_ALPHA_4_TEST, CORRETCLY_SETTING_THE_ALPHA_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint16_t rgba;
+        uint8_t alpha = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        Pixelpp::SetAlpha4(&rgba, alpha);
+        ASSERT_EQ(alpha, Pixelpp::GetAlpha4(rgba));
+    }
+}
+
+
+/* TESTING THE SET RGB FUNCTIONS */
+
+TEST(SET_RGB_16_TEST, CORRETCLY_SETTING_THE_RGB_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint64_t rgba;
+        uint16_t r = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t g = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t b = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        Pixelpp::SetRed16(&rgba, r);
+        Pixelpp::SetGreen16(&rgba, g);
+        Pixelpp::SetBlue16(&rgba, b);
+        ASSERT_EQ(r, Pixelpp::GetRed16(rgba));
+        ASSERT_EQ(g, Pixelpp::GetGreen16(rgba));
+        ASSERT_EQ(b, Pixelpp::GetBlue16(rgba));
+    }
+}
+
+TEST(SET_RGB_8_TEST, CORRETCLY_SETTING_THE_RGB_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint32_t rgba;
+        uint8_t r = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t g = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t b = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        Pixelpp::SetRed8(&rgba, r);
+        Pixelpp::SetGreen8(&rgba, g);
+        Pixelpp::SetBlue8(&rgba, b);
+        ASSERT_EQ(r, Pixelpp::GetRed8(rgba));
+        ASSERT_EQ(g, Pixelpp::GetGreen8(rgba));
+        ASSERT_EQ(b, Pixelpp::GetBlue8(rgba));
+    }
+}
+
+TEST(SET_RGB_4_TEST, CORRETCLY_SETTING_THE_RGB_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint16_t rgba;
+        uint8_t r = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t g = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t b = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        Pixelpp::SetRed4(&rgba, r);
+        Pixelpp::SetGreen4(&rgba, g);
+        Pixelpp::SetBlue4(&rgba, b);
+        ASSERT_EQ(r, Pixelpp::GetRed4(rgba));
+        ASSERT_EQ(g, Pixelpp::GetGreen4(rgba));
+        ASSERT_EQ(b, Pixelpp::GetBlue4(rgba));
+    }
+}
+
+/* TESTING THE SET RGBA FUNCTIONS */
+
+TEST(SET_RGBA_16_TEST, CORRETCLY_SETTING_THE_RGBA_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint64_t rgba;
+        uint16_t r = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t g = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t b = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t a = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        Pixelpp::SetRed16(&rgba, r);
+        Pixelpp::SetGreen16(&rgba, g);
+        Pixelpp::SetBlue16(&rgba, b);
+        Pixelpp::SetAlpha16(&rgba, a);
+        ASSERT_EQ(r, Pixelpp::GetRed16(rgba));
+        ASSERT_EQ(g, Pixelpp::GetGreen16(rgba));
+        ASSERT_EQ(b, Pixelpp::GetBlue16(rgba));
+        ASSERT_EQ(a, Pixelpp::GetAlpha16(rgba));
+    }
+}
+
+TEST(SET_RGBA_8_TEST, CORRETCLY_SETTING_THE_RGBA_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint32_t rgba;
+        uint8_t r = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t g = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t b = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t a = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        Pixelpp::SetRed8(&rgba, r);
+        Pixelpp::SetGreen8(&rgba, g);
+        Pixelpp::SetBlue8(&rgba, b);
+        Pixelpp::SetAlpha8(&rgba, a);
+        ASSERT_EQ(r, Pixelpp::GetRed8(rgba));
+        ASSERT_EQ(g, Pixelpp::GetGreen8(rgba));
+        ASSERT_EQ(b, Pixelpp::GetBlue8(rgba));
+        ASSERT_EQ(a, Pixelpp::GetAlpha8(rgba));
+    }
+}
+
+TEST(SET_RGBA_4_TEST, CORRETCLY_SETTING_THE_RGBA_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint16_t rgba;
+        uint8_t r = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t g = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t b = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t a = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        Pixelpp::SetRed4(&rgba, r);
+        Pixelpp::SetGreen4(&rgba, g);
+        Pixelpp::SetBlue4(&rgba, b);
+        Pixelpp::SetAlpha4(&rgba, a);
+        ASSERT_EQ(r, Pixelpp::GetRed4(rgba));
+        ASSERT_EQ(g, Pixelpp::GetGreen4(rgba));
+        ASSERT_EQ(b, Pixelpp::GetBlue4(rgba));
+        ASSERT_EQ(a, Pixelpp::GetAlpha4(rgba));
+    }
+}
 
 
 int main(int argc, char* argv[])
