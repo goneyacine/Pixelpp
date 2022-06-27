@@ -3,12 +3,13 @@
 #include <time.h>
 #include <cstdlib>
 
+// the number of test iterations
 #define CASE_NUM 10000
 
 
 /* TESTING THE GET RED FUNCTIONS */
 
-TEST(GetRed16Test, CorrectRedValueTest)
+TEST(GET_RED_16_TEST, CORRECT_RED_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -18,7 +19,7 @@ TEST(GetRed16Test, CorrectRedValueTest)
     }
 }
 
-TEST(GetRed8Test, CorrectRedValueTest)
+TEST(GET_RED_8_TEST, CORRECT_RED_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -28,7 +29,7 @@ TEST(GetRed8Test, CorrectRedValueTest)
     }
 }
 
-TEST(GetRed4Test, CorrectRedValueTest)
+TEST(GET_RED_4_TEST, CORRECT_RED_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -40,7 +41,7 @@ TEST(GetRed4Test, CorrectRedValueTest)
 
 /* TESTING THE GET GREEN FUNCTIONS */
 
-TEST(GetGreen16Test, CorrectGreenValueTest)
+TEST(GET_GREEN_16_TEST, CORRECT_GREEN_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -50,7 +51,7 @@ TEST(GetGreen16Test, CorrectGreenValueTest)
     }
 }
 
-TEST(GetGreen8Test, CorrectGreenValueTest)
+TEST(GET_GREEN_8_TEST, CORRECT_GREEN_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -60,7 +61,7 @@ TEST(GetGreen8Test, CorrectGreenValueTest)
     }
 }
 
-TEST(GetGreen4Test, CorrectGreenValueTest)
+TEST(GET_GREEN_4_TEST, CORRECT_GREEN_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -72,7 +73,7 @@ TEST(GetGreen4Test, CorrectGreenValueTest)
 
 /* TESTING THE GET BLUE FUNCTIONS */
 
-TEST(GetBlue16Test, CorrectBlueValueTest)
+TEST(GET_BLUE_16_TEST, CORRECT_BLUE_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -82,7 +83,7 @@ TEST(GetBlue16Test, CorrectBlueValueTest)
     }
 }
 
-TEST(GetBlue8Test, CorrectBlueValueTest)
+TEST(GET_BLUE_8_TEST, CORRECT_BLUE_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -92,7 +93,7 @@ TEST(GetBlue8Test, CorrectBlueValueTest)
     }
 }
 
-TEST(GetBlue4Test, CorrectBlueValueTest)
+TEST(GET_BLUE_4_TEST, CORRECT_BLUE_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -105,7 +106,7 @@ TEST(GetBlue4Test, CorrectBlueValueTest)
 
 /* TESTING THE GET ALPHA FUNCTIONS */
 
-TEST(GetAlpha16Test, CorrectAlphaValueTest)
+TEST(GET_ALPHA_16_TEST, CORRECT_ALPHA_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -115,7 +116,7 @@ TEST(GetAlpha16Test, CorrectAlphaValueTest)
     }
 }
 
-TEST(GetAlpha8Test, CorrectAlphaValueTest)
+TEST(GET_ALPHA_8_TEST, CORRECT_ALPHA_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -125,7 +126,7 @@ TEST(GetAlpha8Test, CorrectAlphaValueTest)
     }
 }
 
-TEST(GetAlpha4Test, CorrectAlphaValueTest)
+TEST(GET_ALPHA_4_TEST, CORRECT_ALPHA_VALUE)
 {
     for (int i = 0; i < CASE_NUM; i++)
     {
@@ -135,6 +136,117 @@ TEST(GetAlpha4Test, CorrectAlphaValueTest)
     }
 }
 
+/* TESTING THE GET RGB FUNCTIONS */
+ 
+TEST(GET_RGB_16_TEST, CORRECT_RGB_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint16_t r = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t g = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t b = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint64_t rgba = ((uint64_t)r) << 48;
+        rgba = rgba  | (((uint64_t)g) << 32);
+        rgba = rgba  | (((uint64_t)b) << 16);
+        ASSERT_EQ(r, Pixelpp::GetRGB16(rgba)[0]);
+        ASSERT_EQ(g, Pixelpp::GetRGB16(rgba)[1]);
+        ASSERT_EQ(b, Pixelpp::GetRGB16(rgba)[2]);
+    }
+}
+
+TEST(GET_RGB_8_TEST, CORRECT_RGB_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint8_t r = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t g = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t b = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint32_t rgba = ((uint32_t)r) << 24;
+        rgba = rgba | (((uint32_t)g) << 16);
+        rgba = rgba | (((uint32_t)b) << 8);
+        ASSERT_EQ(r, Pixelpp::GetRGB8(rgba)[0]);
+        ASSERT_EQ(g, Pixelpp::GetRGB8(rgba)[1]);
+        ASSERT_EQ(b, Pixelpp::GetRGB8(rgba)[2]);
+    }
+}
+
+
+TEST(GET_RGB_4_TEST, CORRECT_RGB_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint8_t r = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t g = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t b = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint16_t rgba = ((uint16_t)r) << 12;
+        rgba = rgba | (((uint16_t)g) << 8);
+        rgba = rgba | (((uint16_t)b) << 4);
+        ASSERT_EQ(r, Pixelpp::GetRGB4(rgba)[0]);
+        ASSERT_EQ(g, Pixelpp::GetRGB4(rgba)[1]);
+        ASSERT_EQ(b, Pixelpp::GetRGB4(rgba)[2]);
+    }
+}
+
+
+/* TESTING THE GET RGBA FUNCTIONS */
+
+TEST(GET_RGBA_16_TEST, CORRECT_RGBA_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint16_t r = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t g = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t b = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint16_t a = (uint16_t)(rand() / RAND_MAX) * 0xFFFF;
+        uint64_t rgba = ((uint64_t)r) << 48;
+        rgba = rgba | (((uint64_t)g) << 32);
+        rgba = rgba | (((uint64_t)b) << 16);
+        rgba = rgba | ((uint64_t)a);
+        ASSERT_EQ(r, Pixelpp::GetRGBA16(rgba)[0]);
+        ASSERT_EQ(g, Pixelpp::GetRGBA16(rgba)[1]);
+        ASSERT_EQ(b, Pixelpp::GetRGBA16(rgba)[2]);
+        ASSERT_EQ(a, Pixelpp::GetRGBA16(rgba)[3]);
+    }
+}
+
+TEST(GET_RGBA_8_TEST, CORRECT_RGBA_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint8_t r = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t g = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t b = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint8_t a = (uint8_t)(rand() / RAND_MAX) * 0xFF;
+        uint32_t rgba = ((uint32_t)r) << 24;
+        rgba = rgba | (((uint32_t)g) << 16);
+        rgba = rgba | (((uint32_t)b) << 8);
+        rgba = rgba | ((uint32_t)a);
+        ASSERT_EQ(r, Pixelpp::GetRGBA8(rgba)[0]);
+        ASSERT_EQ(g, Pixelpp::GetRGBA8(rgba)[1]);
+        ASSERT_EQ(b, Pixelpp::GetRGBA8(rgba)[2]);
+        ASSERT_EQ(a, Pixelpp::GetRGBA8(rgba)[3]);
+    }
+}
+
+
+TEST(GET_RGBA_4_TEST, CORRECT_RGBA_VALUE)
+{
+    for (int i = 0; i < CASE_NUM; i++)
+    {
+        uint8_t r = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t g = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t b = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint8_t a = (uint8_t)(rand() / RAND_MAX) * 0x0F;
+        uint16_t rgba = ((uint16_t)r) << 12;
+        rgba = rgba | (((uint16_t)g) << 8);
+        rgba = rgba | (((uint16_t)b) << 4);
+        rgba = rgba | ((uint16_t)a);
+        ASSERT_EQ(r, Pixelpp::GetRGBA4(rgba)[0]);
+        ASSERT_EQ(g, Pixelpp::GetRGBA4(rgba)[1]);
+        ASSERT_EQ(b, Pixelpp::GetRGBA4(rgba)[2]);
+        ASSERT_EQ(a, Pixelpp::GetRGBA4(rgba)[3]);
+    }
+}
 
 
 
