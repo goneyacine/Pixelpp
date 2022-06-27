@@ -79,34 +79,61 @@ uint8_t Pixelpp::GetAlpha4(uint16_t p_rgba)
 
 uint16_t* Pixelpp::GetRGB16(uint64_t p_rgba)
 {
-	return NULL;
+	uint16_t* rgb = new uint16_t[3];
+	rgb[0] = GetRed16(p_rgba);
+	rgb[1] = GetGreen16(p_rgba);
+	rgb[2] = GetBlue16(p_rgba);
+	return rgb;
 }
 
 uint8_t* Pixelpp::GetRGB8(uint32_t p_rgba)
 {
-	return NULL;
+	uint8_t* rgb = new uint8_t[3];
+	rgb[0] = GetRed8(p_rgba);
+	rgb[1] = GetGreen8(p_rgba);
+	rgb[2] = GetBlue8(p_rgba);
+	return rgb;
 }
 
 uint8_t* Pixelpp::GetRGB4(uint16_t p_rgba)
 {
-	return NULL;
+	uint8_t* rgb = new uint8_t[3];
+	rgb[0] = GetRed4(p_rgba);
+	rgb[1] = GetGreen4(p_rgba);
+	rgb[2] = GetBlue4(p_rgba);
+	return rgb;
 }
 
 /*----------------- GET RGBA FUNCTIONS -----------------*/
 
 uint16_t* Pixelpp::GetRGBA16(uint64_t p_rgba)
 {
-	return NULL;
+	uint16_t* rgba = new uint16_t[4];
+	rgba[0] = GetRed16(p_rgba);
+	rgba[1] = GetGreen16(p_rgba);
+	rgba[2] = GetBlue16(p_rgba);
+	rgba[3] = GetAlpha16(p_rgba);
+	return rgba;
 }
 
 uint8_t* Pixelpp::GetRGBA8(uint32_t p_rgba)
 {
-	return NULL;
+	uint8_t* rgba = new uint8_t[4];
+	rgba[0] = GetRed8(p_rgba);
+	rgba[1] = GetGreen8(p_rgba);
+	rgba[2] = GetBlue8(p_rgba);
+	rgba[3] = GetAlpha8(p_rgba);
+	return rgba;
 }
 
 uint8_t* Pixelpp::GetRGBA4(uint16_t p_rgba)
 {
-	return NULL;
+	uint8_t* rgba = new uint8_t[4];
+	rgba[0] = GetRed4(p_rgba);
+	rgba[1] = GetGreen4(p_rgba);
+	rgba[2] = GetBlue4(p_rgba);
+	rgba[3] = GetAlpha4(p_rgba);
+	return rgba;
 }
 
 /*----------------- SET RED FUNCTIONS -----------------*/

@@ -4,12 +4,17 @@
 
 
 void Example1();
-
+void Example2();
 
 int main()
 {
- 
-	Example1();
+	int choice;
+	std::cout << "choose between Example 1 & 2" << "\n";
+	std::cin >> choice;
+	if (choice == 1)
+		Example1();
+	else
+		Example2();
 
 }
 
@@ -57,4 +62,46 @@ void Example1()
 	}
 
 	std::cout << "......DONE......";
+}
+void Example2()
+{
+	std::cout << "Hello" << "\n";
+	std::cout << "Enter A 16 bit color channel rgba value : " << "\n";
+	uint64_t rgba_64;
+	std::cin >> rgba_64;
+	std::cout << "Thanks for your input, now enter an 8 bit color channel rgba value : " << "\n";
+	uint32_t rgba_32;
+	std::cin >> rgba_32;
+	std::cout << "Oh Thanks Again :), now enter a 4 bit color channel rgba value : " << "\n";
+	uint16_t rgba_16;
+	std::cin >> rgba_16;
+	
+	uint16_t* rgba16 = Pixelpp::GetRGBA16(rgba_64);
+	uint8_t* rgba8 = Pixelpp::GetRGBA8(rgba_32);
+	uint8_t* rgba4 = Pixelpp::GetRGBA8(rgba_16);
+
+	uint16_t* rgb16 = Pixelpp::GetRGBA16(rgba_64);
+	uint8_t* rgb8 = Pixelpp::GetRGBA8(rgba_32);
+	uint8_t* rgb4 = Pixelpp::GetRGBA8(rgba_16);
+
+	std::cout << "RGBA16 (" << (int)*rgba16 << ", " << (int)*(rgba16 + 1) << ", " << (int)*(rgba16 + 2) << ", " << (int)*(rgba16 + 3) << ")" << "\n";
+	std::cout << "RGB16 (" << (int)*rgb16 << ", " << (int)*(rgb16 + 1) << ", " << (int)*(rgb16 + 2) << ")" << "\n";
+
+
+	std::cout << "RGBA8 (" << (int)*rgba8 << ", " << (int)*(rgba8 + 1) << ", " << (int)*(rgba8 + 2) << ", " << (int)*(rgba8 + 3) << ")" << "\n";
+	std::cout << "RGB8 (" << (int)*rgb8 << ", " << (int)*(rgb8 + 1) << ", " << (int)*(rgb8 + 2) << ")" << "\n";
+
+
+
+	std::cout << "RGBA4 (" << (int)*rgba4 << ", " << (int)*(rgba4 + 1) << ", " << (int)*(rgba4 + 2) << ", " << (int)*(rgba4 + 3) << ")" << "\n";
+	std::cout << "RGB4 (" << (int)*rgb4 << ", " << (int)*(rgb4 + 1) << ", " << (int)*(rgb4 + 2) << ")" << "\n";
+
+
+	std::cout << "......DONE......";
+
+
+
+
+
+	
 }
