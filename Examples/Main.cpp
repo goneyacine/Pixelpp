@@ -5,16 +5,25 @@
 
 void Example1();
 void Example2();
+void Example3();
 
 int main()
 {
 	int choice;
-	std::cout << "choose between Example 1 & 2" << "\n";
+	std::cout << "choose between Example 1, 2 & 3" << "\n";
 	std::cin >> choice;
-	if (choice == 1)
+	switch (choice)
+	{
+	case 1:
 		Example1();
-	else
+		break;
+	case 2:
 		Example2();
+		break;
+	case 3:
+		Example3();
+		break;
+	}
 
 }
 
@@ -37,7 +46,7 @@ void Example1()
 		std::cout << ", B: " << (int)Pixelpp::GetBlue16(rgba);
 		std::cout << ", A: " << (int)Pixelpp::GetAlpha16(rgba) << ")" << "\n";
 	}
-		break;
+	break;
 	case 2:
 	{
 		uint32_t rgba;
@@ -47,7 +56,7 @@ void Example1()
 		std::cout << ", B: " << (int)Pixelpp::GetBlue8(rgba);
 		std::cout << ", A: " << (int)Pixelpp::GetAlpha8(rgba) << ")" << "\n";
 	}
-		break;
+	break;
 	case 3:
 	{
 		uint16_t rgba;
@@ -58,7 +67,7 @@ void Example1()
 		std::cout << ", B: " << (int)Pixelpp::GetBlue4(rgba);
 		std::cout << ", A: " << (int)Pixelpp::GetAlpha4(rgba) << ")" << "\n";
 	}
-		break;
+	break;
 	}
 
 	std::cout << "......DONE......";
@@ -75,7 +84,7 @@ void Example2()
 	std::cout << "Oh Thanks Again :), now enter a 4 bit color channel rgba value : " << "\n";
 	uint16_t rgba_16;
 	std::cin >> rgba_16;
-	
+
 	uint16_t* rgba16 = Pixelpp::GetRGBA16(rgba_64);
 	uint8_t* rgba8 = Pixelpp::GetRGBA8(rgba_32);
 	uint8_t* rgba4 = Pixelpp::GetRGBA8(rgba_16);
@@ -99,9 +108,60 @@ void Example2()
 
 	std::cout << "......DONE......";
 
+}
+void Example3()
+{
+	std::cout << "Hello" << "\n";
+	std::cout << "Enter 1 for 16 bit color channel, 2 for 8,3 for 4 :" << "\n";
+	int choice;
+	std::cin >> choice;
+	unsigned int r, g, b, a;
+	std::cout << "Enter the red value : " << "\n";
+	std::cin >> r;
+	std::cout << "Enter the green value : " << "\n";
+	std::cin >> g;
+	std::cout << "Enter the blue value : " << "\n";
+	std::cin >> b;
+	std::cout << "Enter the alpha value" << "\n";
+	std::cin >> a;
+	switch (choice)
+	{
+	case 1:
+	{
+		uint64_t rgba;
+		Pixelpp::SetRGBA16(&rgba, r, g, b, a);
+		std::cout << "RGBA : " << rgba << "\n";
+		std::cout << "(R: " << (int)Pixelpp::GetRed16(rgba);
+		std::cout << ", G: " << (int)Pixelpp::GetGreen16(rgba);
+		std::cout << ", B: " << (int)Pixelpp::GetBlue16(rgba);
+		std::cout << ", A: " << (int)Pixelpp::GetAlpha16(rgba) << ")" << "\n";
+	}
+	break;
+	case 2:
+	{
+		uint32_t rgba;
+		Pixelpp::SetRGBA8(&rgba, r, g, b, a);
+		std::cout << "RGBA : " << rgba << "\n";
+		std::cout << "(R: " << (int)Pixelpp::GetRed8(rgba);
+		std::cout << ", G: " << (int)Pixelpp::GetGreen8(rgba);
+		std::cout << ", B: " << (int)Pixelpp::GetBlue8(rgba);
+		std::cout << ", A: " << (int)Pixelpp::GetAlpha8(rgba) << ")" << "\n";
+	}
+	break;
+	case 3:
+	{
+		uint16_t rgba;
+		Pixelpp::SetRGBA4(&rgba, r, g, b, a);
+		std::cout << "RGBA : " << rgba << "\n";
+		std::cin >> rgba;
+		std::cout << "(R: " << (int)Pixelpp::GetRed4(rgba);
+		std::cout << ", G: " << (int)Pixelpp::GetGreen4(rgba);
+		std::cout << ", B: " << (int)Pixelpp::GetBlue4(rgba);
+		std::cout << ", A: " << (int)Pixelpp::GetAlpha4(rgba) << ")" << "\n";
+	}
+	break;
 
+	}
 
-
-
-	
+	std::cout << "......DONE......";
 }

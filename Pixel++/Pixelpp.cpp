@@ -140,67 +140,79 @@ uint8_t* Pixelpp::GetRGBA4(uint16_t p_rgba)
 
 void Pixelpp::SetRed16(uint64_t* p_rgba, uint16_t p_red)
 {
-
+	*p_rgba = (*p_rgba) & 0x0000FFFFFFFFFFFF;
+	*p_rgba = (*p_rgba) | (((uint64_t)p_red) << 48);
 }
 void Pixelpp::SetRed8(uint32_t* p_rgba, uint8_t p_red)
 {
-
+	*p_rgba = (*p_rgba) & 0x00FFFFFF;
+	*p_rgba = (*p_rgba) | (((uint32_t)p_red) << 24);
 }
 
 void Pixelpp::SetRed4(uint16_t* p_rgba, uint8_t p_red)
 {
-
+	*p_rgba = (*p_rgba) & 0x0FFF;
+	*p_rgba = (*p_rgba) | (((uint16_t)p_red) << 12);
 }
 
 /*----------------- SET GREEN FUNCTIONS -----------------*/
 
 void Pixelpp::SetGreen16(uint64_t* p_rgba, uint16_t p_green)
 {
-
+	*p_rgba = (*p_rgba) & 0xFFFF0000FFFFFFFF;
+	*p_rgba = (*p_rgba) | (((uint64_t)p_green) << 32);
 }
 
 void Pixelpp::SetGreen8(uint32_t* p_rgba, uint8_t p_green)
 {
-
+	*p_rgba = (*p_rgba) & 0xFF00FFFF;
+	*p_rgba = (*p_rgba) | (((uint32_t)p_green) << 16);
 }
 
 void Pixelpp::SetGreen4(uint16_t* p_rgba, uint8_t p_green)
 {
-
+	*p_rgba = (*p_rgba) & 0xF0FF;
+	*p_rgba = (*p_rgba) | (((uint16_t)p_green) << 8);
 }
 
 /*----------------- SET BLUE FUNCTIONS -----------------*/
 
 void Pixelpp::SetBlue16(uint64_t* p_rgba, uint16_t p_blue)
 {
-
+	*p_rgba = (*p_rgba) & 0xFFFFFFFF0000FFFF;
+	*p_rgba = (*p_rgba) | (((uint64_t)p_blue) << 16);
 }
 
 void Pixelpp::SetBlue8(uint32_t* p_rgba, uint8_t p_blue)
 {
-
+	*p_rgba = (*p_rgba) & 0xFFFF00FF;
+	*p_rgba = (*p_rgba) | (((uint32_t)p_blue) << 8);
 }
  
 void Pixelpp::SetBlue4(uint16_t* p_rgba, uint8_t p_blue)
 {
-
+	*p_rgba = (*p_rgba) & 0xFF0F;
+	*p_rgba = (*p_rgba) | (((uint16_t)p_blue) << 4);
 }
 
 /*----------------- SET ALPHA FUNCTIONS -----------------*/
 
 void Pixelpp::SetAlpha16(uint64_t* p_rgba, uint16_t p_alpha)
 {
-
+	*p_rgba = (*p_rgba) & 0xFFFFFFFFFFFF0000;
+	*p_rgba = (*p_rgba) | ((uint64_t)p_alpha);
 }
 
 void Pixelpp::SetAlpha8(uint32_t* p_rgba, uint8_t p_alpha)
 {
-
+	*p_rgba = (*p_rgba) & 0xFFFFFF00;
+	*p_rgba = (*p_rgba) | ((uint32_t)p_alpha);
 }
 
 void Pixelpp::SetAlpha4(uint16_t* p_rgba, uint8_t p_alpha)
 {
-
+	*p_rgba = (*p_rgba) & 0xFFF0;
+	*p_rgba = (*p_rgba) | ((uint16_t)p_alpha);
 
 }
 
@@ -208,35 +220,55 @@ void Pixelpp::SetAlpha4(uint16_t* p_rgba, uint8_t p_alpha)
 
 void Pixelpp::SetRGB16(uint64_t* p_rgba, uint16_t p_red, uint16_t p_green, uint16_t p_blue)
 {
-
+	*p_rgba = 0x0000000000000000;
+	*p_rgba = ((uint64_t)p_red) << 48;
+	*p_rgba = (*p_rgba) | (((uint64_t)p_green) << 32);
+	*p_rgba = (*p_rgba) | (((uint64_t)p_blue) << 16);
 }
 
 void Pixelpp::SetRGB8(uint32_t* p_rgba, uint8_t p_red, uint8_t p_green, uint8_t p_blue)
 {
-
+	*p_rgba = 0x00000000;
+	*p_rgba = ((uint32_t)p_red) << 24;
+	*p_rgba = (*p_rgba) | (((uint32_t)p_green) << 16);
+	*p_rgba = (*p_rgba) | (((uint32_t)p_blue) << 8);
 }
 
 void Pixelpp::SetRGB4(uint16_t* p_rgba, uint8_t p_red, uint8_t p_green, uint8_t p_blue)
 {
-
+	*p_rgba = 0x0000;
+	*p_rgba = ((uint16_t)p_red) << 12;
+	*p_rgba = (*p_rgba) | (((uint16_t)p_green) << 8);
+	*p_rgba = (*p_rgba) | (((uint16_t)p_blue) << 4);
 }
 
 /*----------------- SET RGBA FUNCTIONS -----------------*/
 
 void Pixelpp::SetRGBA16(uint64_t* p_rgba, uint16_t p_red, uint16_t p_green, uint16_t p_blue, uint16_t p_alpha)
 {
-
+	*p_rgba = 0x0000000000000000;
+	*p_rgba = ((uint64_t)p_red) << 48;
+	*p_rgba = (*p_rgba) | (((uint64_t)p_green) << 32);
+	*p_rgba = (*p_rgba) | (((uint64_t)p_blue) << 16);
+	*p_rgba = (*p_rgba) | ((uint64_t)p_alpha);
 }
 
 void Pixelpp::SetRGBA8(uint32_t* p_rgba, uint8_t p_red, uint8_t p_green, uint8_t p_blue, uint8_t p_alpha)
 {
-
-
+	*p_rgba = 0x00000000;
+	*p_rgba = ((uint32_t)p_red) << 24;
+	*p_rgba = (*p_rgba) | (((uint32_t)p_green) << 16);
+	*p_rgba = (*p_rgba) | (((uint32_t)p_blue) << 8);
+	*p_rgba = (*p_rgba) | ((uint32_t)p_alpha);
 }
 
 void Pixelpp::SetRGBA4(uint16_t* p_rgba, uint8_t p_red, uint8_t p_green, uint8_t p_blue, uint8_t p_alpha)
 {
-
+	*p_rgba = 0x0000;
+	*p_rgba = ((uint16_t)p_red) << 12;
+	*p_rgba = (*p_rgba) | (((uint16_t)p_green) << 8);
+	*p_rgba = (*p_rgba) | (((uint16_t)p_blue) << 4);
+	*p_rgba = (*p_rgba) | ((uint16_t)p_alpha);
 }
 
 
