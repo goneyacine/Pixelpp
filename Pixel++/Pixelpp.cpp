@@ -271,6 +271,61 @@ void Pixelpp::SetRGBA4(uint16_t* p_rgba, uint8_t p_red, uint8_t p_green, uint8_t
 	*p_rgba = (*p_rgba) | ((uint16_t)p_alpha);
 }
 
+uint32_t Pixelpp::RGBA64_to_32(uint64_t p_rgba64)
+{
+	uint32_t rgba32;
+	Pixelpp::SetRGBA8(&rgba32, (uint8_t)((float)Pixelpp::GetRed16(p_rgba64) / 0xFFFF * 0xFF),
+		(uint8_t)((float)Pixelpp::GetGreen16(p_rgba64) / 0xFFFF * 0xFF), (uint8_t)((float)Pixelpp::GetBlue16(p_rgba64) / 0xFFFF * 0xFF),
+		(uint8_t)((float)Pixelpp::GetAlpha16(p_rgba64) / 0xFFFF * 0xFF));
+	return rgba32;
+}
+
+uint16_t Pixelpp::RGBA64_to_16(uint64_t p_rgba64)
+{
+	uint16_t rgba16;
+	Pixelpp::SetRGBA4(&rgba16, (uint8_t)((float)Pixelpp::GetRed16(p_rgba64) / 0xFFFF * 0x0F),
+		(uint8_t)((float)Pixelpp::GetGreen16(p_rgba64) / 0xFFFF * 0x0F), (uint8_t)((float)Pixelpp::GetBlue16(p_rgba64) / 0xFFFF * 0x0F),
+		(uint8_t)((float)Pixelpp::GetAlpha16(p_rgba64) / 0xFFFF * 0x0F));
+	return rgba16;
+}
+
+
+uint64_t Pixelpp::RGBA32_to_64(uint32_t p_rgba32)
+{
+	uint64_t rgba64;
+	Pixelpp::SetRGBA16(&rgba64, (uint16_t)((float)Pixelpp::GetRed8(p_rgba32) / 0xFF * 0xFFFF),
+		(uint16_t)((float)Pixelpp::GetGreen8(p_rgba32) / 0xFF * 0xFFFF), (uint16_t)((float)Pixelpp::GetBlue8(p_rgba32) / 0xFF * 0xFFFF),
+		(uint16_t)((float)Pixelpp::GetAlpha8(p_rgba32) / 0xFF * 0xFFFF));
+	return rgba64;
+}
+
+uint16_t Pixelpp::RGBA32_to_16(uint32_t p_rgba32)
+{
+	uint16_t rgba16;
+	Pixelpp::SetRGBA4(&rgba16, (uint8_t)((float)Pixelpp::GetRed8(p_rgba32) / 0xFF * 0x0F),
+		(uint8_t)((float)Pixelpp::GetGreen8(p_rgba32) / 0xFF * 0x0F), (uint8_t)((float)Pixelpp::GetBlue8(p_rgba32) / 0xFF * 0x0F),
+		(uint8_t)((float)Pixelpp::GetAlpha8(p_rgba32) / 0xFF * 0x0F));
+	return rgba16;
+}
+
+uint64_t Pixelpp::RGBA16_to_64(uint16_t p_rgba16)
+{
+	uint64_t rgba64;
+	Pixelpp::SetRGBA16(&rgba64, (uint16_t)((float)Pixelpp::GetRed4(p_rgba16) / 0x0F * 0xFFFF),
+		(uint16_t)((float)Pixelpp::GetGreen4(p_rgba16) / 0x0F * 0xFFFF), (uint16_t)((float)Pixelpp::GetBlue4(p_rgba16) / 0x0F * 0xFFFF),
+		(uint16_t)((float)Pixelpp::GetAlpha4(p_rgba16) / 0x0F * 0xFFFF));
+	return rgba64;
+}
+
+uint32_t Pixelpp::RGBA16_to_32(uint16_t p_rgba16)
+{
+	uint32_t rgba32;
+	Pixelpp::SetRGBA8(&rgba32, (uint8_t)((float)Pixelpp::GetRed4(p_rgba16) / 0x0F * 0xFF),
+		(uint8_t)((float)Pixelpp::GetGreen4(p_rgba16) / 0x0F * 0xFF), (uint8_t)((float)Pixelpp::GetBlue4(p_rgba16) / 0x0F * 0xFF),
+		(uint8_t)((float)Pixelpp::GetAlpha4(p_rgba16) / 0x0F * 0xFF));
+	return rgba32;
+}
+
 
 
 

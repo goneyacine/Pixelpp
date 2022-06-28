@@ -6,11 +6,12 @@
 void Example1();
 void Example2();
 void Example3();
+void Example4();
 
 int main()
 {
 	int choice;
-	std::cout << "choose between Example 1, 2 & 3" << "\n";
+	std::cout << "choose between Example 1, 2, 3 & 4" << "\n";
 	std::cin >> choice;
 	switch (choice)
 	{
@@ -22,6 +23,9 @@ int main()
 		break;
 	case 3:
 		Example3();
+		break;
+	case 4:
+		Example4();
 		break;
 	}
 
@@ -164,4 +168,71 @@ void Example3()
 	}
 
 	std::cout << "......DONE......";
+}
+
+void Example4()
+{
+	std::cout << "Hello" << "\n";
+	std::cout << "Enter 1 for RGBA64_to_32, 2 for RGBA64_to_16, 3 for RGBA32_to_64, 4 for RGBA32_to16, 5 for RGBA16_to_64, 6 for RGBA_16_to_32";
+	std::cout << "\n";
+	int choice;
+	std::cin >> choice; 
+	switch (choice)
+	{
+	case 1:
+	{
+		std::cout << "Enter the rgba 64 value : ";
+		uint64_t rgba;
+		std::cin >> rgba;
+		std::cout << "\n";
+		std::cout << "RGBA_32 = " << Pixelpp::RGBA64_to_32(rgba) << "\n";
+	}
+	break;
+	case 2:
+	{
+		std::cout << "Enter the rgba 64 value : ";
+		uint64_t rgba;
+		std::cin >> rgba;
+		std::cout << "\n";
+		std::cout << "RGBA_16 = " << Pixelpp::RGBA64_to_16(rgba) << "\n";
+	}
+	break;
+	case 3:
+	{
+		std::cout << "Enter the rgba 32 value : ";
+		uint32_t rgba;
+		std::cin >> rgba;
+		std::cout << "\n";
+		std::cout << "RGBA_64 = " << Pixelpp::RGBA32_to_64(rgba) << "\n";
+	}
+	break;
+	case 4:
+	{
+		std::cout << "Enter the rgba 32 value :";
+		uint32_t rgba;
+		std::cin >> rgba;
+		std::cout << "\n";
+		std::cout << "RGBA_16 = " << Pixelpp::RGBA32_to_16(rgba);
+	}
+	break;
+	case 5:
+	{
+		std::cout << "Enter the rgba 16 value : ";
+		uint16_t rgba;
+		std::cin >> rgba;
+		std::cout << "\n";
+		std::cout << "RGBA_64 = " << Pixelpp::RGBA16_to_64(rgba) << "\n";
+	}
+	break;
+	case 6:
+	{
+		std::cout << "Enter the rgba 16 value : ";
+		uint16_t rgba;
+		std::cin >> rgba;
+		std::cout << "\n";
+		std::cout << "RGBA_32 = " << Pixelpp::RGBA16_to_32(rgba) << "\n";
+	}
+	break;
+	}
+
 }
