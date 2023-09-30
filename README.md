@@ -57,4 +57,4 @@ int main()
 
 ## Social media 
 If you have any questions, feel free to reach me at
-[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/Yacine_Betouche.svg?style=social&label=Follow%20%40Yacine_Betouche)](https://twitter.com/Yacine_Betouche)
+(https://www.linkedin.com/in/yacine-betouche-53b159264/)
